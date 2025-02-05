@@ -22,13 +22,8 @@ $description = 'Local development environment';
     @media (prefers-color-scheme: dark) { html { background-color: #222; color: #999; } } /* dark theme */
   </style>
   <link rel="stylesheet" media="all" href="/local2025/assets/css/ace.css?v=0.1.12&b=164.16"/>
+  <link rel="stylesheet" media="all" href="/local2025/assets/css/style.css?v=0.1.12&b=164.16"/>
   <style>
-    .nav-button { min-width: 10rem; }
-    ._nav_layout,
-    ._header_layout,
-    ._footer_layout,
-    ._main_layout,
-    ._page_layout { max-width:60rem }
   </style>
 </head>
 
@@ -39,7 +34,7 @@ $description = 'Local development environment';
         <header id="_header">
           <div class="_header_layout">
             <h1 class="_h1" id="_heading"><a href="/" class="__a _hover-link"><?= $heading ?></a></h1>
-            <p class="_small"><?= $description ?></p>
+            <p class="_small" id="_about"><?= $description ?></p>
             <hr class="_no-margin"/>
           </div>
         </header>
