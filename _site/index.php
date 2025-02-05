@@ -55,14 +55,25 @@ $description = 'Local development environment';
           <div class="_p _pre _b">
             <span id="jstest" class="_tc_red">[JavaScript KO]</span>
             <script>
-              (function(e){
+              (function(d){
+                var e = d.getElementById('jstest');
                 e.innerHTML='[JavaScript OK]';
                 e.setAttribute('class','_tc_green');
-              })(document.getElementById('jstest'));
+              })(document);
             </script>
             <?php
               echo '<span class="_tc_green">[PHP OK]</span>';
             ?>
+            <span id="host_test">[Local]</span>
+            <script>
+              (function(w,d){
+                var e = d.getElementById('host_test');
+                if ( w.location.hostname != 'localhost' ){
+                  e.innerHTML='[Live]';
+                  e.setAttribute('class','_tc_orange');
+                }
+              })(window,document);
+            </script>
           </div>
           <hr/>
           <div class="_pre _b">
