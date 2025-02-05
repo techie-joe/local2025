@@ -54,10 +54,12 @@ $description = 'Local development environment';
           <hr/>
           <div class="_p _pre _b">
             <span id="jstest" class="_tc_red">[JavaScript KO]</span>
-            <script>(function(e){
+            <script>
+              (function(e){
                 e.innerHTML='[JavaScript OK]';
                 e.setAttribute('class','_tc_green');
-              })(document.getElementById('jstest'))</script>
+              })(document.getElementById('jstest'));
+            </script>
             <?php
               echo '<span class="_tc_green">[PHP OK]</span>';
             ?>
