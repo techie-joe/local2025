@@ -68,7 +68,7 @@ $description = 'Local development environment';
           <div class="_pre _b">
             <div class="_p">
               <a href="/local2025/_site" class="_nav-item">local2025</a>
-              <a href="/takaful-calculator/docs" class="_nav-item">takaful-calculator</a>
+              <a href="/takaful-calculator" class="_nav-item">takaful-calculator</a>
             </div>
             <div class="_p">
               <?php
