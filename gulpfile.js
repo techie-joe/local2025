@@ -4,33 +4,41 @@ This is the gulper commands definition.
 Files that tells gulper how to build your project.
 Find more information about Gulp on http://gulpjs.com
 
+============================================================= */
+
+// CONFIGS
+// =============================================================
+
+const _src_site = '_site/**/*';
+const _dep_site = '../';
+
+// IMPORTS
+// =============================================================
+
+const { src, dest, series, parallel, watch } = require('gulp');
+const log = console.log;
+
+// TASKS
+// =============================================================
+
+// to copy every files from _src to _dest
+function deploy() {
+  log(`Deploying site to : ${_dep_site}`);
+  return src(_src_site, { dot: true })
+  .pipe(dest(_dep_site));
+}
+
 /* =============================================================
 
 List of available commands:
 
+// > gulp deploy
 // > gulp
-// > gulp site
-
-// > gulp builder
-// > gulp files
-// > gulp pages
-// > gulp css
-// > gulp js
-
-// > gulp watch
-// > gulp pagesw
-// > gulp cssw
-// > gulp jsw
 
 To list available tasks, try running: > gulp --tasks
 
 ============================================================= */
 
-const { series, parallel, watch } = require('gulp');
-const { deploy } = require('./gulpall');
+exports.deploy = series( deploy );
 
-exports.all = series(
-  deploy
-);
-
-exports.default = exports.all;
+exports.default = exports.deploy;
