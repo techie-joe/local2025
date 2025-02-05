@@ -19,10 +19,11 @@
     "test": "gulp test"
   },
 
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^5.0.0"
+  },
 
   "dependencies": {
-    "gulp": "^5.0.0"
   }
 
 }

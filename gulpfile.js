@@ -26,8 +26,8 @@ To list available tasks, try running: > gulp --tasks
 
 ============================================================= */
 
-const { watch, series, parallel } = require('gulp');
-const deploy = require('./gulp-deploy');
+const { series, parallel, watch } = require('gulp');
+const { deploy } = require('./gulpall');
 
 exports.all = series(
   deploy
