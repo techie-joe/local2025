@@ -35,41 +35,22 @@ $description = 'Local development environment';
           <div class="_header_layout">
             <h1 class="_h1" id="_heading"><a href="/" class="__a _hover-link"><?= $heading ?></a></h1>
             <p class="_small" id="_about"><?= $description ?></p>
-            <hr class="_no-margin"/>
+            <hr/>
           </div>
         </header>
         <div class="_page_layout" id="_pageData">
-          <div class="_p _pre _b">
-            <span id="jstest" class="_tc_red">[JavaScript KO]</span>
-            <script>
-              (function(d){
-                var e = d.getElementById('jstest');
-                e.innerHTML='[JavaScript OK]';
-                e.setAttribute('class','_tc_green');
-              })(document);
-            </script>
-            <?php
-              echo '<span class="_tc_green">[PHP OK]</span>';
-            ?>
-            <span id="host_test">[Local]</span>
-            <script>
-              (function(w,d){
-                var e = d.getElementById('host_test');
-                if ( w.location.hostname != 'localhost' ){
-                  e.innerHTML='[Live]';
-                  e.setAttribute('class','_tc_orange');
-                }
-              })(window,document);
-            </script>
-          </div>
-          <hr/>
-          <div class="_p _pre _b">
+          <div class="_mono _small _b">
             <a title="Back to previous page" class="_nav-item" onclick="event.preventDefault();window.history.back();">← Back</a>
-            <a title="Change theme" class="_nav-item _nav-icon" onclick="event.preventDefault();base.theme.change();">☀</a>
-            <a href="/" title="Go to home page" class="_nav-item">Home</a>
             <a href=".." title="Parent directory" class="_nav-item">Parent</a>
             <a href="/404.html" class="_nav-item">404</a>
-            <a href="404" title="Simulate Real 404" class="_nav-item _nav-icon">--</a>
+            <a href="404" title="Simulate Real 404" class="_nav-item _nav-icon">⊘</a>
+            <a title="Change theme" class="_nav-item _nav-icon" onclick="event.preventDefault();base.theme.change();">☀</a>
+          </div>
+          <hr/>
+          <div class="_mono _small _b">
+            <a href="/" title="Go to home page" class="_nav-item">Home</a>
+            <a href="/local2025/site" class="_nav-item">local2025</a>
+            <a href="/takaful-calculator" class="_nav-item">takaful-calculator</a>
           </div>
           <hr/>
           <div class="_pre _b">
@@ -103,13 +84,32 @@ $description = 'Local development environment';
                 
                 ?>
             </div>
-            <hr/>
-            <div class="_p">
-              <a href="/local2025/site" class="_nav-item">local2025</a>
-              <a href="/takaful-calculator" class="_nav-item">takaful-calculator</a>
-            </div>
-            <hr/>
           </div>
+          <hr/>
+          <div class="_p _pre _b">
+            <span id="jstest" class="_tc_red">[JavaScript KO]</span>
+            <script>
+              (function(d){
+                var e = d.getElementById('jstest');
+                e.innerHTML='[JavaScript OK]';
+                e.setAttribute('class','_tc_green');
+              })(document);
+            </script>
+            <?php
+              echo '<span class="_tc_green">[PHP OK]</span>';
+            ?>
+            <span id="host_test">[Local]</span>
+            <script>
+              (function(w,d){
+                var e = d.getElementById('host_test');
+                if ( w.location.hostname != 'localhost' ){
+                  e.innerHTML='[Live]';
+                  e.setAttribute('class','_tc_orange');
+                }
+              })(window,document);
+            </script>
+          </div>
+          <hr/>
         </div>
         <footer id="_footer">
           <div class="_footer_layout">
