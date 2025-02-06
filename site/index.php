@@ -40,14 +40,6 @@ $description = 'Local development environment';
         </header>
         <div class="_page_layout" id="_pageData">
           <div class="_p _pre _b">
-            <a title="Back to previous page" class="_nav-item" onclick="event.preventDefault();window.history.back();">← Back</a>
-            <a title="Change theme" class="_nav-item _nav-icon" onclick="event.preventDefault();base.theme.change();">☀</a>
-            <a href="/" title="Go to home page" class="_nav-item">Home</a>
-            <a href=".." title="Parent directory" class="_nav-item">Parent</a>
-            <a href="404" class="_nav-item">404</a>
-          </div>
-          <hr/>
-          <div class="_p _pre _b">
             <span id="jstest" class="_tc_red">[JavaScript KO]</span>
             <script>
               (function(d){
@@ -71,11 +63,16 @@ $description = 'Local development environment';
             </script>
           </div>
           <hr/>
+          <div class="_p _pre _b">
+            <a title="Back to previous page" class="_nav-item" onclick="event.preventDefault();window.history.back();">← Back</a>
+            <a title="Change theme" class="_nav-item _nav-icon" onclick="event.preventDefault();base.theme.change();">☀</a>
+            <a href="/" title="Go to home page" class="_nav-item">Home</a>
+            <a href=".." title="Parent directory" class="_nav-item">Parent</a>
+            <a href="/404.html" class="_nav-item">404</a>
+            <a href="404" title="Simulate Real 404" class="_nav-item _nav-icon">--</a>
+          </div>
+          <hr/>
           <div class="_pre _b">
-            <div class="_p">
-              <a href="/local2025/_site" class="_nav-item">local2025</a>
-              <a href="/takaful-calculator" class="_nav-item">takaful-calculator</a>
-            </div>
             <div class="_p">
               <?php
 
@@ -105,6 +102,11 @@ $description = 'Local development environment';
 
                 
                 ?>
+            </div>
+            <hr/>
+            <div class="_p">
+              <a href="/local2025/site" class="_nav-item">local2025</a>
+              <a href="/takaful-calculator" class="_nav-item">takaful-calculator</a>
             </div>
             <hr/>
           </div>
