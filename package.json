@@ -15,6 +15,10 @@
     "url": "git+https://github.com/techie-joe/local2025.git"
   },
 
+  "bugs": {
+    "url": "https://github.com/techie-joe/local2025/issues"
+  },
+
   "scripts": {
     "test": "gulp test"
   },
