@@ -3,5 +3,5 @@
 
 ## Change logs
 
-### April 19, 2025 - v2.0.0
+### April 20, 2025 - v2.0.0
 - rewrite localhost
