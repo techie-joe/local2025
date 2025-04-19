@@ -5,7 +5,8 @@ $heading     = 'Localhost 2025';
 $description = 'Local development environment';
 
 // Directory path to be listed
-$DIRECTORY = $_SERVER['DOCUMENT_ROOT'] . $_SERVER['REQUEST_URI'];
+$_URI = $_SERVER['REQUEST_URI'];
+$_DIRECTORY = $_SERVER['DOCUMENT_ROOT'] . $_URI;
 
 function match_dir($directory, $file)
 {
@@ -14,7 +15,7 @@ function match_dir($directory, $file)
   if ($_SERVER['REQUEST_URI'] == '/') {
     $exclude = '/^[._]|^(node_modules)$/';
   }
-  if ($_SERVER['REQUEST_URI'] == '/local2025/') {
+  else if ($_SERVER['REQUEST_URI'] == '/local2025/') {
     $exclude = '/^[._]|^(node_modules|root)$/';
   }
   return is_dir($directory . $file)
@@ -31,9 +32,13 @@ function match_file($file)
     && preg_match($exclude, $file) === 0;
 }
 
+
 function renderDirectoryContent($directory) {
+  
+  $parentLink = '<a href=".." title="Parent directory" class="_link _l _outline">&middot;&middot;</a>';
 
   // Open a known directory, and proceed to read its contents
+  // echo $directory;
   if (is_dir($directory)) {
     if ($dh = opendir($directory)) {
       $dirs = [];
@@ -50,18 +55,17 @@ function renderDirectoryContent($directory) {
       $dc = count($dirs);
       $fc = count($files);
 
+      echo '<div class="_mh _p">';
+      echo $parentLink.' ';
       if ($dc) {
-        echo '<div class="_mh _p">';
         foreach ($dirs as $dir) {
           if ($dir) {
             echo "<a href='$dir' class='_link _l _outline'>$dir</a> ";
           }
         }
-        echo '</div>';
       }
-      if ($dc && $fc) {
-        echo '<hr/>';
-      }
+      echo '</div>';
+      echo '<hr/>';
       if ($fc) {
         echo '<div class="_mh _p">';
         foreach ($files as $file) {
@@ -77,7 +81,10 @@ function renderDirectoryContent($directory) {
       echo '<p class="_mh"><span class="_b _mono _tc_red">Could not open directory</span></p>';
     }
   } else {
-    echo '<p class="_mh"><span class="_b _mono _tc_red">Invalid directory</span></p>';
+    echo '<div class="_mh">';
+    echo '<p>'.$parentLink.'</p>';
+    echo '<p><span class="_b _mono _tc_red">Invalid directory</span></p>';
+    echo '</div>';
   }
 
 }
@@ -185,38 +192,33 @@ function renderDirectoryContent($directory) {
                 <div class="_flex _gap_a_x5">
                   <div class="_fill">
                     
-                    <nav class="_color_1 _radius_x5r _clearfix">
-                      <div class="_nav_layout">
-                        <a href="/" title="Go to home page" class="_link _l">Home</a><a href=".." title="Parent directory" class="_link _l _icon">&middot;&middot;</a>
-                      </div>
-                    </nav>
+                    <div class="_color_1 _radius_x5r" style="padding:.7rem">
+                      <span><?= $_URI ?></span>
+                    </div>
                     
                   </div>
-                  <div class="_f" style="flex: 0 0 6.1em">
+                  <div class="_f" style="flex: 0 0 9rem">
                     <nav class="_color_1 _radius_x5r _clearfix">
                       <div class="_nav_layout _text_right">
-                        <a href="404.html" class="_link _l">404</a><a href="404" title="Simulate Real 404" class="_link _l _icon">&bull;</a>
+                      <a href="/local2025/site/500.html" class="_link _l">500</a><a href="/local2025/site/404.html" class="_link _l">404</a><a href="404" title="Simulate Real 404" class="_link _l _icon">&bull;</a>
                       </div>
                     </nav>
                   </div>
                 </div>
-                <hr/>
-                <div class="_mh"><?= $_SERVER['REQUEST_URI'] ?></div>
                 <hr/>
                 <div class="directory" style="min-height:250px">
                   <?php
 
-                    // echo "<pre>";
-                    // print_r([ 'DIRECTORY' => $DIRECTORY ]);
-                    // // print_r($_SERVER);
+                   // echo "<pre>";
+                    // print_r([ '$__DIR__' => $__DIR__ ]);
+                    // print_r($_SERVER);
                     // echo "</pre>";
-
-                    renderDirectoryContent($DIRECTORY);
+                    
+                    renderDirectoryContent($_DIRECTORY);
 
                   ?>
                 </div>
                 <hr/>
-
                 <nav class="">
                   <div class="_nav_layout">
 
@@ -245,7 +247,6 @@ function renderDirectoryContent($directory) {
                 
                   </div>
                 </nav>
-
               </article>
             </div>
           </main>

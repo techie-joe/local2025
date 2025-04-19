@@ -3,6 +3,7 @@ ErrorDocument 404 /local2025/site/404.html
 ErrorDocument 500 /local2025/site/500.html
 
 RewriteEngine On
+
 # Rewrite url when request meet this condition
 # - is not a file
 # - is a directory
