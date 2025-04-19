@@ -3,7 +3,7 @@
 
   "name"        : "local2025",
   "description" : "Local development 2025",
-  "version"     : "1.0.0",
+  "version"     : "2.0.0",
   "author"      : "Techie Joe",
   "license"     : "SEE LICENSE IN LICENSE.txt",
   "main"        : "gulpfile.js",

@@ -1,4 +1,16 @@
+
+# Handle Errors
+ErrorDocument 404 /local2025/404.html
+ErrorDocument 500 /local2025/500.html
+
+
 RewriteEngine On
+
+# Rewrite url when request meet this condition
+# - is not a file
+# - is a directory
+# - then: redirect all url to: /local2025/index.php
+# - L - stop redirect process
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^(.*)$ /local2025/index.php [L]
