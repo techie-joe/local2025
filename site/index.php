@@ -4,177 +4,265 @@ $title       = 'Localhost 2025';
 $heading     = 'Localhost 2025';
 $description = 'Local development environment';
 
+// Directory path to be listed
+$DIRECTORY = $_SERVER['DOCUMENT_ROOT'] . $_SERVER['REQUEST_URI'];
+
+function match_dir($directory, $file)
+{
+  // Directory to be excluded
+  $exclude = '/^[._]|^(node_modules)$/';
+  if ($_SERVER['REQUEST_URI'] == '/') {
+    $exclude = '/^[._]|^(node_modules)$/';
+  }
+  return is_dir($directory . $file)
+    && preg_match($exclude, $file) === 0;
+}
+
+function match_file($file)
+{
+  // Files to be included only
+  // $exclude = '/^(404\.html?|index\.(html?|php))$/';
+  $exclude = '/^(index\.(php))$/';
+  $include = '/^(.*)\.(html?|php|s?css|js(on)?|txt|md)$/';
+  return preg_match($include, $file)
+    && preg_match($exclude, $file) === 0;
+}
+
+function renderDirectoryContent($directory) {
+
+  // Open a known directory, and proceed to read its contents
+  if (is_dir($directory)) {
+    if ($dh = opendir($directory)) {
+      $dirs = [];
+      $files = [];
+      while (($file = readdir($dh)) !== false) {
+        if (match_dir($directory, $file)) {
+          $dirs[] = $file;
+        } else if (match_file($file)) {
+          $files[] = $file;
+        }
+      }
+      closedir($dh);
+
+      $dc = count($dirs);
+      $fc = count($files);
+
+      if ($dc) {
+        echo '<div class="_mh _p">';
+        foreach ($dirs as $dir) {
+          if ($dir) {
+            echo "<a href='$dir' class='_link _l _outline'>$dir</a> ";
+          }
+        }
+        echo '</div>';
+      }
+      if ($dc && $fc) {
+        echo '<hr/>';
+      }
+      if ($fc) {
+        echo '<div class="_mh _p">';
+        foreach ($files as $file) {
+          echo "<a href='$file' class='_link _l'>$file</a> ";
+        }
+        echo '</div>';
+      }
+
+      if ($fc + $dc == 0) {
+        echo '<p class="_mh"><span class="_b _mono _tc_red">Empty directory</span></p>';
+      }
+    } else {
+      echo '<p class="_mh"><span class="_b _mono _tc_red">Could not open directory</span></p>';
+    }
+  } else {
+    echo '<p class="_mh"><span class="_b _mono _tc_red">Invalid directory</span></p>';
+  }
+
+}
+
 ?>
 <!DOCTYPE html>
-<html class="_nojs _scrollbar _a" id="_html" lang="en"><!-- localhost:index -->
+<html class="_html _nojs _scrollbar _a _hidden" id="_html" lang="en">
 
-<head>
-  <meta charset="utf-8" />
-  <title><?= $title ?></title>
-  <meta name="description" content="<?= $description ?>" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-  <meta id="_color-scheme" name="color-scheme" />
-  <meta id="_theme-color" name="theme-color" content="#222222" />
-  <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-  <style>
-    html {
-      background-color: #ddd;
-      color: #666;
-    }
+  <!-- Ace Template v0.1.27 b14 | (c) Copyright 2025 - Techie Joe -->
+  <!-- layout:elements/_html -->
+  
+  <head>
+    <meta charset="utf-8"/>
+    <title><?= $title ?></title>
+    <meta name="description" content="<?= $description ?>" />
 
-    /* light theme - (default) */
-    @media (prefers-color-scheme: dark) {
-      html {
-        background-color: #222;
-        color: #999;
+    <meta name="author" content="Techie Joe"/>
+    <meta name="publisher" content="Tidloo Digital"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta id="_color_scheme" name="color-scheme" content="light dark"/>
+    <meta id="_theme_color" name="theme-color" content="#222222"/>
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/ace/icons/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/ace/icons/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/ace/icons/favicon-16x16.png"/>
+    <link rel="icon" type="image/x-icon" sizes="any" href="/ace/icons/favicon.ico"/>
+    <!--[if lt IE 9]><script src="//unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+    <style>
+      html{font-family:system-ui,sans-serif}
+      body{margin:0}
+      ._view{overflow-y:scroll;padding:.5rem}
+      ._dark hr{border-color:#666}
+    </style>
+    <link rel="stylesheet" media="all" href="/ace/assets/css/core_2/html.css?v=0.1.27-14" id="_core_style"/>
+    <?php /*
+    <style>
+      #_navlogo {
+        border: 0;
+        padding: .25em 1em;
+        border-radius: 0;
+        margin: 0;
+        line-height: 2;
+        font-size: 1.2em;
+        box-sizing: border-box;
+        width: 100%;
       }
-    }
-
-    /* dark theme */
-  </style>
-  <link rel="stylesheet" media="all" href="/local2025/assets/css/ace.css?v=0.1.12&b=164.16" />
-  <link rel="stylesheet" media="all" href="/local2025/assets/css/style.css?v=0.1.12&b=164.16" />
-  <style>
-  </style>
-</head>
-
-<body id="_body">
-  <div id="_contents">
-    <div class="_view">
-      <div class="_view_layout">
-        <header id="_header">
-          <div class="_header_layout">
-            <h1 class="_h1" id="_heading"><a href="/" class="__a _hover-link"><?= $heading ?></a></h1>
-            <p class="_small" id="_about"><?= $description ?></p>
-            <hr />
-          </div>
-        </header>
-        <div class="_page_layout" id="_pageData">
-
-          <div class="_mono _small _b">
-            <a title="Back to previous page" class="_nav-item" onclick="event.preventDefault();window.history.back();">← Back</a>
-            <a href=".." title="Parent directory" class="_nav-item _nav-icon">●</a>
-            <a href="/" title="Go to home page" class="_nav-item">Home</a>
-            <a title="Change theme" class="_nav-item _nav-icon" onclick="event.preventDefault();base.theme.change();">☀</a>
-            <a href="/404.html" class="_nav-item">404</a>
-            <a href="404" title="Simulate Real 404" class="_nav-item _nav-icon">⊘</a>
-          </div>
-          <hr />
-
-          <div class="_pre _b">
-            <div class="_p">
-              <?php
-
-              function match_dir($directory, $file)
-              {
-                // Directory to be excluded
-                $exclude = '/^[._]|^(node_modules)$/';
-                if ($_SERVER['REQUEST_URI'] == '/') {
-                  $exclude = '/^[._]|^(node_modules)$/';
-                }
-                return is_dir($directory . $file)
-                  && preg_match($exclude, $file) === 0;
-              }
-
-              function match_file($file)
-              {
-                // Files to be included only
-                $exclude = '/^(404\.html?|index\.(html?|php))$/';
-                $include = '/^(.*)\.(html?|php|s?css|js(on)?|txt|md)$/';
-                return preg_match($include, $file)
-                  && preg_match($exclude, $file) === 0;
-              }
-
-              // Directory path to be listed
-              $directory = isset($directory) ? $directory : './';
-
-              // echo '<div>' . $directory . '</div>';
-              // echo '<div><span class="_nav-label">' . $_SERVER['REQUEST_URI'] . '</span></div>';
-
-              // Open a known directory, and proceed to read its contents
-              if (is_dir($directory)) {
-                if ($dh = opendir($directory)) {
-                  $dirs = [];
-                  $files = [];
-                  while (($file = readdir($dh)) !== false) {
-                    if (match_dir($directory, $file)) {
-                      $dirs[] = $file;
-                    } else if (match_file($file)) {
-                      $files[] = $file;
-                    }
-                  }
-                  closedir($dh);
-
-                  $dc = count($dirs);
-                  $fc = count($files);
-
-                  if ($dc) {
-                    echo '<div>';
-                    foreach ($dirs as $dir) {
-                      if ($dir) {
-                        echo "<a href='$dir' class='_nav-item'>$dir</a> ";
-                      }
-                    }
-                    echo '</div>';
-                    echo '<hr/>';
-                  }
-
-                  if ($fc) {
-                    echo '<div>';
-                    foreach ($files as $file) {
-                      echo "<a href='$file' class='_nav-item'>$file</a> ";
-                    }
-                    echo '</div>';
-                  }
-
-                  if ($fc + $dc == 0) {
-                    echo '<p><span class="_nav-label _tc_red">Empty</span></p>';
-                  }
-                } else {
-                  echo '<p><span class="_nav-label _tc_red">Could not open directory</span></p>';
-                }
-              } else {
-                echo '<p><span class="_nav-label _tc_red">Invalid directory</span></p>';
-              }
-
-              ?>
+      #_navbar { margin: -.5rem -1rem 0 }
+      ._pageHeader,
+      ._pageFooter,
+      #_main ._article
+      { max-width:60em;margin:.5rem auto }
+      #_navbar ._nav_layout
+      { max-width:60em;margin:auto }
+    </style>
+    */ ?>
+  </head>
+  <body class="_body" id="_body">
+    <div class="_views" id="_views">
+      <div class="_view _full_view">
+        <div class="_view_layout">
+          <header id="_header">
+            <div class="_header_layout">
+              <nav class="_no_print" id="_topRightNav">
+                <div class="_nav_layout"><a class="_link _color _ticon" href="#" title="Change Theme (Ctrl+Alt+T)" onclick="event.preventDefault();theme.change();">☯</a><a class="_link _color" title="Back to previous page" href="/#_back_to_previous_page" onclick="event.preventDefault();window.history.back();">&times;</a>
+                </div>
+              </nav>
+              <?php /*
+                <nav class="_color_1 _no_print" id="_navbar">
+                  <div class="_nav_layout">
+                    <div class="_flex">
+                      <div class="_f">
+                        <style>
+                          #_navlogo {
+                            border: 0;
+                            padding: .25em 1em;
+                            border-radius: 0;
+                            margin: 0;
+                            line-height: 2;
+                            font-size: 1.2em;
+                            box-sizing: border-box;
+                            width: 100%;
+                          }
+                        </style><a class="_btnlink" href="/ace/" id="_navlogo"><b class="_tc_contra">Ace</b><b class="_tc_blue">Template</b></a>
+                      </div>
+                      <div class="_fill" style="flex-basis:20rem">
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+              */ ?>
+              <div class="_pageHeader _simpleHeader" style="margin-left:-.5rem">
+                <h1 class="_h1 _mb0" id="_heading">
+                  <a href="/" title="Back to home page" class="_link _l"><?= $heading ?></a>
+                </h1>
+                <p id="_about" class="_small _mt0" style="padding:0 1.5rem"><?= $description ?></p>
+                <hr/>
+              </div>
             </div>
-          </div>
-          <hr />
-          <div class="_p _pre _b">
-            <span id="jstest" class="_tc_red">[JS]</span>
-            <script>
-              (function(d) {
-                var e = d.getElementById('jstest');
-                e.setAttribute('class', '_tc_green');
-              })(document);
-            </script>
-            <?php
-            echo '<span class="_tc_green">[PHP]</span>';
-            ?>
-            <span id="host_test">[Local]</span>
-            <script>
-              (function(w, d) {
-                var e = d.getElementById('host_test');
-                if (w.location.hostname != 'localhost') {
-                  e.innerHTML = '[Live]';
-                  e.setAttribute('class', '_tc_orange');
-                }
-              })(window, document);
-            </script>
-          </div>
-          <hr />
+          </header>
+          <main id="_main">
+            <div class="_main_layout">
+              <article class="_article">
+
+                <div class="_flex _gap_a_x5">
+                  <div class="_fill">
+                    
+                    <nav class="_color_1 _radius_x5r _clearfix">
+                      <div class="_nav_layout">
+                        <a href="/" title="Go to home page" class="_link _l">Home</a><a href=".." title="Parent directory" class="_link _l _icon">&middot;&middot;</a>
+                      </div>
+                    </nav>
+                    
+                  </div>
+                  <div class="_f" style="flex: 0 0 6.1em">
+                    <nav class="_color_1 _radius_x5r _clearfix">
+                      <div class="_nav_layout _text_right">
+                        <a href="404.html" class="_link _l">404</a><a href="404" title="Simulate Real 404" class="_link _l _icon">&bull;</a>
+                      </div>
+                    </nav>
+                  </div>
+                </div>
+                <hr/>
+                <div class="directory" style="min-height:250px">
+                  <?php
+
+                    // echo "<pre>";
+                    // print_r([ 'DIRECTORY' => $DIRECTORY ]);
+                    // // print_r($_SERVER);
+                    // echo "</pre>";
+
+                    renderDirectoryContent($DIRECTORY);
+
+                  ?>
+                </div>
+                <hr/>
+
+                <nav class="">
+                  <div class="_nav_layout">
+
+                    <div class="_ph _small _mono _b">
+                      <span id="jstest" class="_tc_red">[JS]</span>
+                      <script>
+                        (function(d) {
+                          var e = d.getElementById('jstest');
+                          e.setAttribute('class', '_tc_green');
+                        })(document);
+                      </script>
+                      <?php
+                      echo '<span class="_tc_green">[PHP]</span>';
+                      ?>
+                      <span id="host_test">[Local]</span>
+                      <script>
+                        (function(w, d) {
+                          var e = d.getElementById('host_test');
+                          if (w.location.hostname != 'localhost') {
+                            e.innerHTML = '[Live]';
+                            e.setAttribute('class', '_tc_orange');
+                          }
+                        })(window, document);
+                      </script>
+                    </div>
+                
+                  </div>
+                </nav>
+
+              </article>
+            </div>
+          </main>
+          <aside id="_aside">
+            <div class="_aside_layout">
+            </div>
+          </aside>
+          <footer id="_footer">
+            <div class="_footer_layout">
+              <div class="_pageFooter _defaultFooter">
+                <hr/>
+                <p class="_small _system">&copy; Copyright 2025 - Techie Joe</p>
+              </div>
+            </div>
+          </footer>
         </div>
-        <footer id="_footer">
-          <div class="_footer_layout">
-          </div>
-        </footer>
       </div>
     </div>
-  </div>
-  <script type="text/javascript" src="/local2025/assets/cjs/thm.js?v=0.1.12&b=164.16" defer="defer"></script>
-  <!-- IE needs 512+ bytes: https://techie-joe.github.io/library/html5/ie#ie-needs-512-bytes -->
-</body>
+    <div class="_widgets" id="_widgets"></div>
+    <script type="text/javascript" src="/ace/assets/js/theme_v1.0.js?v=0.1.27-14" defer="defer"></script>
+    <!-- IE needs 512+ bytes: https://techie-joe.github.io/library/html5/ie#ie-needs-512-bytes -->
+
+  </body>
 
 </html>
