@@ -9,7 +9,7 @@ Find more information about Gulp on http://gulpjs.com
 // CONFIGS
 // =============================================================
 
-const _src_site = 'site/**/*';
+const _src_site = 'root/*';
 const _dep_site = '../';
 
 const watchOpt = { ignoreInitial: false };

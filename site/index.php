@@ -14,6 +14,9 @@ function match_dir($directory, $file)
   if ($_SERVER['REQUEST_URI'] == '/') {
     $exclude = '/^[._]|^(node_modules)$/';
   }
+  if ($_SERVER['REQUEST_URI'] == '/local2025/') {
+    $exclude = '/^[._]|^(node_modules|root)$/';
+  }
   return is_dir($directory . $file)
     && preg_match($exclude, $file) === 0;
 }
@@ -84,7 +87,7 @@ function renderDirectoryContent($directory) {
 <html class="_html _nojs _scrollbar _a _hidden" id="_html" lang="en">
 
   <!-- Ace Template v0.1.27 b14 | (c) Copyright 2025 - Techie Joe -->
-  <!-- layout:elements/_html -->
+  <!-- layout:local2025/site/index -->
   
   <head>
     <meta charset="utf-8"/>
