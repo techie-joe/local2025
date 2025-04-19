@@ -198,6 +198,8 @@ function renderDirectoryContent($directory) {
                   </div>
                 </div>
                 <hr/>
+                <div class="_mh"><?= $_SERVER['REQUEST_URI'] ?></div>
+                <hr/>
                 <div class="directory" style="min-height:250px">
                   <?php
 
