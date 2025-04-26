@@ -56,7 +56,7 @@ function renderDirectoryContent($directory) {
       $fc = count($files);
 
       echo '<div class="_mh _p">';
-      echo $parentLink.' ';
+      if($_SERVER['REQUEST_URI'] != '/') { echo $parentLink.' '; }
       if ($dc) {
         foreach ($dirs as $dir) {
           if ($dir) {
