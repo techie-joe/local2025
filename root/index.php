@@ -1,2 +1,2 @@
 <?php
-include "local2025/site/index.php";
+include "local2025/index.php";
