@@ -81,10 +81,10 @@ function renderDirectoryContent($directory) {
       echo '<p class="_mh"><span class="_b _mono _tc_red">Could not open directory</span></p>';
     }
   } else {
-    echo '<div class="_mh">';
-    echo '<p>'.$parentLink.'</p>';
-    echo '<p><span class="_b _mono _tc_red">Invalid directory</span></p>';
-    echo '</div>';
+    echo '<div class="_mh"><p>';
+    echo $parentLink;
+    echo '<span class="_b _mono _tc_red _ph">Invalid directory</span>';
+    echo '</p></div>';
   }
 
 }
@@ -193,7 +193,7 @@ function renderDirectoryContent($directory) {
                   <div class="_fill">
                     
                     <div class="_color_1 _radius_x5r" style="padding:.7rem">
-                      <span><?= $_URI ?></span>
+                      <span>localhost<?= $_URI ?></span>
                     </div>
                     
                   </div>
@@ -257,6 +257,9 @@ function renderDirectoryContent($directory) {
           <footer id="_footer">
             <div class="_footer_layout">
               <div class="_pageFooter _defaultFooter">
+                <div style="margin-left:2em;float:right;">
+                  <p class="_small _system"><a href="https://github.com/techie-joe/local2025" target="github-local2025" class="_link"><u>Git Source</u></a></p>
+                </div>
                 <hr/>
                 <p class="_small _system">&copy; Copyright 2025 - Techie Joe</p>
               </div>
