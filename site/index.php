@@ -197,10 +197,10 @@ function renderDirectoryContent($directory) {
                     </div>
                     
                   </div>
-                  <div class="_f" style="flex: 0 0 9rem">
+                  <div class="_f" style="flex: 0 0 12rem">
                     <nav class="_color_1 _radius_x5r _clearfix">
                       <div class="_nav_layout _text_right">
-                      <a href="/local2025/site/500.html" class="_link _l">500</a><a href="/local2025/site/404.html" class="_link _l">404</a><a href="404" title="Simulate Real 404" class="_link _l _icon">&bull;</a>
+                      <a href="/local2025/site/500.html" class="_link _l">500</a><a href="/local2025/site/403.html" class="_link _l">403</a><a href="/local2025/site/404.html" class="_link _l">404</a><a href="404" title="Simulate Real 404" class="_link _l _icon">&bull;</a>
                       </div>
                     </nav>
                   </div>

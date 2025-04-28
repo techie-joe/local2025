@@ -1,4 +1,5 @@
 # Handle Errors
+ErrorDocument 403 /local2025/site/403.html
 ErrorDocument 404 /local2025/site/404.html
 ErrorDocument 500 /local2025/site/500.html
 
@@ -14,4 +15,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_FILENAME}/index.html !-f
 RewriteCond %{REQUEST_FILENAME}/index.php !-f
-RewriteRule ^(.*)$ /index.php [L]
+RewriteRule ^(.*)$ index.php [L]
