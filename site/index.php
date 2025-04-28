@@ -152,7 +152,7 @@ function renderDirectoryContent($directory) {
                 <div class="_nav_layout"><a class="_link _color _ticon" href="#" title="Change Theme (Ctrl+Alt+T)" onclick="event.preventDefault();theme.change();">☯</a><a class="_link _color" title="Back to previous page" href="/#_back_to_previous_page" onclick="event.preventDefault();window.history.back();">&times;</a>
                 </div>
               </nav>
-              <?php /*
+              <?php if(0) { ?>
                 <nav class="_color_1 _no_print" id="_navbar">
                   <div class="_nav_layout">
                     <div class="_flex">
@@ -175,7 +175,7 @@ function renderDirectoryContent($directory) {
                     </div>
                   </div>
                 </nav>
-              */ ?>
+              <?php } ?>
               <div class="_pageHeader _simpleHeader" style="margin-left:-.5rem">
                 <h1 class="_h1 _mb0" id="_heading">
                   <a href="/" title="Back to home page" class="_link _l"><?= $heading ?></a>
@@ -206,17 +206,25 @@ function renderDirectoryContent($directory) {
                   </div>
                 </div>
                 <hr/>
-                <div class="directory" style="min-height:250px">
-                  <?php
+                <div class="_flex _gap_a_x5">
+                  <div class="_fill directory" style="min-height:250px">
+                    <?php
 
-                   // echo "<pre>";
-                    // print_r([ '$__DIR__' => $__DIR__ ]);
-                    // print_r($_SERVER);
-                    // echo "</pre>";
-                    
-                    renderDirectoryContent($_DIRECTORY);
+                    // echo "<pre>";
+                      // print_r([ '$__DIR__' => $__DIR__ ]);
+                      // print_r($_SERVER);
+                      // echo "</pre>";
+                      
+                      renderDirectoryContent($_DIRECTORY);
 
-                  ?>
+                    ?>
+                  </div>
+                  <div class="_f directory" style="flex-basis:20%">
+                    <h3 class="_small _m0">Favourites:</h3>
+                    <div class="_pa">
+                      <a href='/ace/menumakan' class='_link _l _border'>Menu Makan</a>
+                    </div>
+                  </div>
                 </div>
                 <hr/>
                 <nav class="">
