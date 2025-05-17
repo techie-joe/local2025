@@ -266,7 +266,7 @@ function renderDirectoryContent($directory) {
             <div class="_footer_layout">
               <div class="_pageFooter _defaultFooter">
                 <div style="margin-left:2em;float:right;">
-                  <p class="_small _system"><a href="https://github.com/techie-joe/local2025" target="github-local2025" class="_link"><u>Git Source</u></a></p>
+                  <p class="_small"><a href="https://github.com/techie-joe/local2025" target="github-local2025" class="_link _l"><u>Git Source</u></a></p>
                 </div>
                 <hr/>
                 <p class="_small _system">&copy; Copyright 2025 - Techie Joe</p>
