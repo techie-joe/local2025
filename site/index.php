@@ -222,7 +222,8 @@ function renderDirectoryContent($directory) {
                   <div class="_f directory" style="flex-basis:20%">
                     <h3 class="_small _m0">Favourites:</h3>
                     <div class="_pa">
-                      <a href='/ace/easymenu' class='_link _l _border'>EasyMenu&trade;</a>
+                      <a href='/ace/easymenu' class='_link _l _border'>Ace - EasyMenu&trade;</a>
+                      <a href='/easymenu' class='_link _l _border'>EasyMenu&trade;</a>
                     </div>
                   </div>
                 </div>
