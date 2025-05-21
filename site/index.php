@@ -55,7 +55,7 @@ function renderDirectoryContent($directory) {
       $dc = count($dirs);
       $fc = count($files);
 
-      echo '<div class="_p">';
+      echo '<div class="_mh_x5r _p">';
       if($_SERVER['REQUEST_URI'] != '/') { echo $parentLink.' '; }
       if ($dc) {
         foreach ($dirs as $dir) {
@@ -67,7 +67,7 @@ function renderDirectoryContent($directory) {
       echo '</div>';
       // echo '<hr/>';
       if ($fc) {
-        echo '<div class="_p">';
+        echo '<div class="_mh_x5r _p">';
         foreach ($files as $file) {
           echo "<a href='$file' class='_link _l'>$file</a> ";
         }
@@ -124,6 +124,7 @@ function renderDirectoryContent($directory) {
       #_heading,#_about { display:inline }
       #_heading { font-size:1em }
       #_footer { position:absolute;bottom:0;left:0;right:0;padding-bottom:0; }
+      ._footer_layout, ._header_layout, ._main_layout, ._page_layout { padding:0 .5rem }
     </style>
   </head>
   <body class="_body" id="_body">
@@ -160,7 +161,7 @@ function renderDirectoryContent($directory) {
                   </div>
                 </nav>
               <?php } ?>
-              <div class="_pageHeader _simpleHeader" style="margin-left:-.5rem">
+              <div class="_pageHeader _simpleHeader">
                 <h1 class="_h1 _mb0" id="_heading">
                   <a href="/" title="Back to home page" class="_link _l"><?= $heading ?></a>
                 </h1>
@@ -205,7 +206,7 @@ function renderDirectoryContent($directory) {
                   </div>
                   <div class="_f directory" style="flex-basis:20%">
                     <!-- <h3 class="_small">Favourites:</h3> -->
-                    <div class="_p">
+                    <div class="_mh_x5r _p">
                       <!-- <a href='/ace/easymenu' class='_link _l _border'>Ace - EasyMenu&trade;</a> -->
                       <a href='/easymenu' class='_link _l _border'>EasyMenu&trade;</a>
                     </div>
