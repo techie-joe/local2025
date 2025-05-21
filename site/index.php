@@ -55,7 +55,7 @@ function renderDirectoryContent($directory) {
       $dc = count($dirs);
       $fc = count($files);
 
-      echo '<div class="_mh _p">';
+      echo '<div class="_p">';
       if($_SERVER['REQUEST_URI'] != '/') { echo $parentLink.' '; }
       if ($dc) {
         foreach ($dirs as $dir) {
@@ -65,9 +65,9 @@ function renderDirectoryContent($directory) {
         }
       }
       echo '</div>';
-      echo '<hr/>';
+      // echo '<hr/>';
       if ($fc) {
-        echo '<div class="_mh _p">';
+        echo '<div class="_p">';
         foreach ($files as $file) {
           echo "<a href='$file' class='_link _l'>$file</a> ";
         }
@@ -120,27 +120,11 @@ function renderDirectoryContent($directory) {
       ._dark hr{border-color:#666}
     </style>
     <link rel="stylesheet" media="all" href="/ace/assets/css/core_2/html.css?v=0.1.27-14" id="_core_style"/>
-    <?php /*
     <style>
-      #_navlogo {
-        border: 0;
-        padding: .25em 1em;
-        border-radius: 0;
-        margin: 0;
-        line-height: 2;
-        font-size: 1.2em;
-        box-sizing: border-box;
-        width: 100%;
-      }
-      #_navbar { margin: -.5rem -1rem 0 }
-      ._pageHeader,
-      ._pageFooter,
-      #_main ._article
-      { max-width:60em;margin:.5rem auto }
-      #_navbar ._nav_layout
-      { max-width:60em;margin:auto }
+      #_heading,#_about { display:inline }
+      #_heading { font-size:1em }
+      #_footer { position:absolute;bottom:0;left:0;right:0;padding-bottom:0; }
     </style>
-    */ ?>
   </head>
   <body class="_body" id="_body">
     <div class="_views" id="_views">
@@ -205,7 +189,7 @@ function renderDirectoryContent($directory) {
                     </nav>
                   </div>
                 </div>
-                <hr/>
+                <hr class="_hidden"/>
                 <div class="_flex _gap_a_x5">
                   <div class="_fill directory" style="min-height:250px">
                     <?php
@@ -220,18 +204,29 @@ function renderDirectoryContent($directory) {
                     ?>
                   </div>
                   <div class="_f directory" style="flex-basis:20%">
-                    <h3 class="_small _m0">Favourites:</h3>
-                    <div class="_pa">
+                    <!-- <h3 class="_small">Favourites:</h3> -->
+                    <div class="_p">
                       <!-- <a href='/ace/easymenu' class='_link _l _border'>Ace - EasyMenu&trade;</a> -->
                       <a href='/easymenu' class='_link _l _border'>EasyMenu&trade;</a>
                     </div>
                   </div>
                 </div>
+              </article>
+            </div>
+          </main>
+          <aside id="_aside">
+            <div class="_aside_layout">
+            </div>
+          </aside>
+          <footer id="_footer">
+            <div class="_footer_layout">
+              <div class="_pageFooter _defaultFooter">
+
                 <hr/>
                 <nav class="">
                   <div class="_nav_layout">
 
-                    <div class="_ph _small _mono _b">
+                    <div class="_small _mono _b">
                       <span id="jstest" class="_tc_red">[JS]</span>
                       <script>
                         (function(d) {
@@ -256,21 +251,14 @@ function renderDirectoryContent($directory) {
                 
                   </div>
                 </nav>
-              </article>
-            </div>
-          </main>
-          <aside id="_aside">
-            <div class="_aside_layout">
-            </div>
-          </aside>
-          <footer id="_footer">
-            <div class="_footer_layout">
-              <div class="_pageFooter _defaultFooter">
+
                 <div style="margin-left:2em;float:right;">
                   <p class="_small"><a href="https://github.com/techie-joe/local2025" target="github-local2025" class="_link _l"><u>Git Source</u></a></p>
                 </div>
+
                 <hr/>
                 <p class="_small _system">&copy; Copyright 2025 - Techie Joe</p>
+
               </div>
             </div>
           </footer>
