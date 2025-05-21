@@ -7,10 +7,10 @@ RewriteEngine On
 # Rewrite url when request meet this condition
 # - is not a file
 # - is a directory
-# - dont have index.html / index.php
+# - dont have index.html nor index.php
 # - dont redirect to it self
 # - then: redirect all url to: /local2025/index.php
-# - L - stop redirect process
+# - L - conclude redirect process
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_FILENAME}/index.html !-f
