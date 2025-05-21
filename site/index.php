@@ -124,7 +124,8 @@ function renderDirectoryContent($directory) {
       #_heading,#_about { display:inline }
       #_heading { font-size:1em }
       #_footer { position:absolute;bottom:0;left:0;right:0;padding-bottom:0; }
-      ._footer_layout, ._header_layout, ._main_layout, ._page_layout { padding:0 .5rem }
+      ._footer_layout, ._header_layout { padding:0 }
+      ._main_layout, ._page_layout { padding:0 .5rem }
     </style>
   </head>
   <body class="_body" id="_body">
@@ -258,7 +259,7 @@ function renderDirectoryContent($directory) {
                 </div>
 
                 <hr/>
-                <p class="_small _system">&copy; Copyright 2025 - Techie Joe</p>
+                <p class="_ph_x5r _small _system">&copy; Copyright 2025 - Techie Joe</p>
 
               </div>
             </div>
