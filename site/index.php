@@ -55,21 +55,21 @@ function renderDirectoryContent($directory) {
       $dc = count($dirs);
       $fc = count($files);
 
-      echo '<div class="_mh_x5r _p">';
-      if($_SERVER['REQUEST_URI'] != '/') { echo $parentLink.' '; }
+      echo '<div class="_p" id="_directory">';
+      if($_SERVER['REQUEST_URI'] != '/') { echo $parentLink; }
       if ($dc) {
         foreach ($dirs as $dir) {
           if ($dir) {
-            echo "<a href='$dir' class='_link _l _outline'>$dir</a> ";
+            echo "<a href='$dir' class='_link _l _outline'>$dir</a>";
           }
         }
       }
       echo '</div>';
       // echo '<hr/>';
       if ($fc) {
-        echo '<div class="_mh_x5r _p">';
+        echo '<div class="_p" id="_files">';
         foreach ($files as $file) {
-          echo "<a href='$file' class='_link _l'>$file</a> ";
+          echo "<a href='$file' class='_link _l'>$file</a>";
         }
         echo '</div>';
       }
@@ -126,6 +126,8 @@ function renderDirectoryContent($directory) {
       #_footer { position:absolute;bottom:0;left:0;right:0;padding-bottom:0; }
       ._footer_layout, ._header_layout { padding:0 }
       ._main_layout, ._page_layout { padding:0 .5rem }
+      #_directory ._link { margin:.25em .2em }
+      #_files ._link { margin:.25em .2em }
     </style>
   </head>
   <body class="_body" id="_body">
