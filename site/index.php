@@ -122,7 +122,7 @@ function renderDirectoryContent($directory) {
     <link rel="stylesheet" media="all" href="/ace/assets/css/core_2/html.css?v=0.1.27-14" id="_core_style"/>
     <style>
       #_heading,#_about { display:inline }
-      #_heading { font-size:1em }
+      #_heading { font-size:1em;margin:.25rem }
       #_footer { position:absolute;bottom:0;left:0;right:0;padding-bottom:0; }
       ._footer_layout, ._header_layout { padding:0 }
       ._main_layout, ._page_layout { padding:0 .5rem }
@@ -166,7 +166,7 @@ function renderDirectoryContent($directory) {
                 <h1 class="_h1 _mb0" id="_heading">
                   <a href="/" title="Back to home page" class="_link _l"><?= $heading ?></a>
                 </h1>
-                <p id="_about" class="_small _mt0" style="padding:0 1.5rem"><?= $description ?></p>
+                <p id="_about" class="_small _mt0"><?= $description ?></p>
                 <hr/>
               </div>
             </div>
