@@ -220,7 +220,7 @@ function renderDirectoryContent($directory) {
             <div class="_aside_layout">
             </div>
           </aside>
-          <footer id="_footer">
+          <footer id="_footer" class="_color">
             <div class="_footer_layout">
               <div class="_pageFooter _defaultFooter">
 
