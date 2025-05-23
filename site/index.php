@@ -126,7 +126,8 @@ function renderDirectoryContent($directory) {
       #_footer { position:absolute;bottom:0;left:0;right:0;padding-bottom:0; }
       ._footer_layout, ._header_layout { padding:0 }
       ._main_layout, ._page_layout { padding:0 .5rem }
-      #_directory ._link { margin:.25em .2em }
+      #_directory ._link,
+      #_favourites ._link,
       #_files ._link { margin:.25em .2em }
     </style>
   </head>
@@ -209,7 +210,7 @@ function renderDirectoryContent($directory) {
                   </div>
                   <div class="_f directory" style="flex-basis:20%">
                     <!-- <h3 class="_small">Favourites:</h3> -->
-                    <div class="_mh_x5r _p">
+                    <div class="_mh_x5r _p" id="_favourites">
                       <a href='/ace/easymenu' class='_link _l _border'>Ace - EasyMenu&trade;</a>
                       <!-- <a href='/easymenu' class='_link _l _border'>EasyMenu&trade;</a> -->
                       <a href='/barecss/site' class='_link _l _border'>BareCSS</a>
