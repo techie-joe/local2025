@@ -212,6 +212,7 @@ function renderDirectoryContent($directory) {
                     <div class="_mh_x5r _p">
                       <a href='/ace/easymenu' class='_link _l _border'>Ace - EasyMenu&trade;</a>
                       <!-- <a href='/easymenu' class='_link _l _border'>EasyMenu&trade;</a> -->
+                      <a href='/BareCSS/site' class='_link _l _border'>BareCSS</a>
                     </div>
                   </div>
                 </div>
