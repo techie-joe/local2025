@@ -213,6 +213,7 @@ function renderDirectoryContent($directory) {
                       <a href='/ace/easymenu' class='_link _l _border'>Ace - EasyMenu&trade;</a>
                       <!-- <a href='/easymenu' class='_link _l _border'>EasyMenu&trade;</a> -->
                       <a href='/BareCSS/site' class='_link _l _border'>BareCSS</a>
+                      <a href='/Segio/site' class='_link _l _border'>Segio</a>
                     </div>
                   </div>
                 </div>
