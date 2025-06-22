@@ -211,10 +211,20 @@ function renderDirectoryContent($directory) {
                   <div class="_f directory" style="flex-basis:20%">
                     <!-- <h3 class="_small">Favourites:</h3> -->
                     <div class="_mh_x5r _p" id="_favourites">
-                      <a href='/ace/easymenu' class='_link _l _border'>Ace - EasyMenu&trade;</a>
+                      <a href='/phpMyAdmin' class='_link _l _border'>PHP My Admin</a>
+                      <a href='/ace' class='_link _l _border'>Ace</a>
                       <!-- <a href='/easymenu' class='_link _l _border'>EasyMenu&trade;</a> -->
                       <a href='/barecss/site' class='_link _l _border'>BareCSS</a>
                       <a href='/segio/site' class='_link _l _border'>Segio</a>
+                      <a href='/nova/site' class='_link _l _border'>Nova</a>
+                      <a href='/tidloo/dev/manual' class='_link _l _border'>Tidloo</a>
+                      <hr>
+                      <h3 class="_h7 _mb_x5r">Ace</h3>
+                      <a href='/ace/easymenu' class='_link _l _border'>EasyMenu&trade;</a>
+                      <a href='/ace/themejs' class='_link _l _border'>ThemeJS&trade;</a>
+                      <a href='/ace/a1' class='_link _l _border'>A1</a>
+                      <a href='/ace/b1' class='_link _l _border'>B1</a>
+                      <a href='/ace/vanamir' class='_link _l _border'>Vanamir</a>
                     </div>
                   </div>
                 </div>
