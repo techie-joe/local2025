@@ -210,7 +210,7 @@ function renderDirectoryContent($directory) {
                   </div>
                   <div class="_f directory" style="flex-basis:20%">
                     <!-- <h3 class="_small">Favourites:</h3> -->
-                    <div class="_mh_x5r _p" id="_favourites">
+                    <div class="_mh_x5r _p _idiv" id="_favourites">
                       <a href='/phpMyAdmin' class='_link _l _border'>PHP My Admin</a>
                       <a href='/ace' class='_link _l _border'>Ace</a>
                       <!-- <a href='/easymenu' class='_link _l _border'>EasyMenu&trade;</a> -->
