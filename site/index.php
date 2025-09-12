@@ -217,6 +217,7 @@ function renderDirectoryContent($directory) {
                       <a href='/barecss/site' class='_link _l _border'>BareCSS</a>
                       <a href='/segio/site' class='_link _l _border'>Segio</a>
                       <a href='/nova/site' class='_link _l _border'>Nova</a>
+                      <a href='/neo' class='_link _l _border'>Neo</a>
                       <a href='/tidloo/dev/manual' class='_link _l _border'>Tidloo</a>
                       <hr>
                       <h3 class="_h7 _mb_x5r">Ace</h3>
