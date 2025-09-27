@@ -64,26 +64,23 @@ function renderDirectoryContent($directory) {
           }
         }
       }
+      else if ($fc + $dc == 0) echo '<span class="_mh _b _mono _tc_red">Empty directory</span>';
       echo '</div>';
       // echo '<hr/>';
+      echo '<div class="_p" id="_files">';
       if ($fc) {
-        echo '<div class="_p" id="_files">';
         foreach ($files as $file) {
           echo "<a href='$file' class='_link _l'>$file</a>";
         }
-        echo '</div>';
       }
-
-      if ($fc + $dc == 0) {
-        echo '<p class="_mh"><span class="_b _mono _tc_red">Empty directory</span></p>';
-      }
+      echo '</div>';
     } else {
       echo '<p class="_mh"><span class="_b _mono _tc_red">Could not open directory</span></p>';
     }
   } else {
-    echo '<div class="_mh">';
+    echo '<div class="_p" id="_directory">';
     echo $parentLink;
-    echo '<span class="_b _mono _tc_red _ph">Invalid directory</span>';
+    echo '<span class="_mh _b _mono _tc_red">Invalid directory</span>';
     echo '</div>';
   }
 
@@ -231,6 +228,7 @@ function renderDirectoryContent($directory) {
                     <a href='/neo' class='_link _l _border'>Neo</a>
                     <a href='/segio/site' class='_link _l _border'>Segio</a>
                     <a href='/tidloo/dev/manual' class='_link _l _border'>Tidloo</a>
+                    <a href='/test-sites' class='_link _l _border'>Test Sites</a>
                   </div>
                   <h3 class="_h7 _mb_x5r">Ace</h3>
                   <div class="_ma_x5r _idiv">
