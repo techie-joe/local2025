@@ -121,7 +121,8 @@ function renderDirectoryContent($directory) {
       #_heading,#_about { display:inline }
       #_heading { font-size:1em;margin:.25rem }
       #_footer { position:absolute;bottom:0;left:0;right:0;padding-bottom:0; }
-      ._footer_layout, ._header_layout { padding:0 }
+      ._header_layout { padding:0 }
+      ._footer_layout { padding:0 0 .5rem 0 }
       ._main_layout, ._page_layout { padding:0 .5rem }
       #_directory ._link,
       #_favourites ._link,
