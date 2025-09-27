@@ -214,7 +214,6 @@ function renderDirectoryContent($directory) {
                       <a href='/phpMyAdmin' class='_link _l _border'>PHP My Admin</a>
                       <a href='/ace' class='_link _l _border'>Ace</a>
                       <!-- <a href='/easymenu' class='_link _l _border'>EasyMenu&trade;</a> -->
-                      <a href='/barecss/site' class='_link _l _border'>BareCSS</a>
                       <a href='/segio/site' class='_link _l _border'>Segio</a>
                       <a href='/nova/site' class='_link _l _border'>Nova</a>
                       <a href='/neo' class='_link _l _border'>Neo</a>
