@@ -35,7 +35,7 @@ function match_file($file)
 
 function renderDirectoryContent($directory) {
   
-  $parentLink = '<a href=".." title="Parent directory" class="_link _l _outline">&middot;&middot;</a>';
+  $parentLink = '<a href=".." title="Parent directory" class="_link _l">&middot;&middot;</a>';
 
   // Open a known directory, and proceed to read its contents
   // echo $directory;
@@ -60,7 +60,7 @@ function renderDirectoryContent($directory) {
       if ($dc) {
         foreach ($dirs as $dir) {
           if ($dir) {
-            echo "<a href='$dir' class='_link _l _outline'>$dir</a>";
+            echo "<a href='$dir' class='_link _l'>$dir</a>";
           }
         }
       }
@@ -81,10 +81,10 @@ function renderDirectoryContent($directory) {
       echo '<p class="_mh"><span class="_b _mono _tc_red">Could not open directory</span></p>';
     }
   } else {
-    echo '<div class="_mh"><p>';
+    echo '<div class="_mh">';
     echo $parentLink;
     echo '<span class="_b _mono _tc_red _ph">Invalid directory</span>';
-    echo '</p></div>';
+    echo '</div>';
   }
 
 }
@@ -129,6 +129,30 @@ function renderDirectoryContent($directory) {
       #_directory ._link,
       #_favourites ._link,
       #_files ._link { margin:.25em .2em }
+      #_directory ._link {
+        border: 2px solid rgba(197,117,31,.74);
+        background-color: rgba(255,184,108,.14);
+        display: inline-block;
+        box-sizing: border-box;
+        position: relative;
+        margin:.4rem .2em;
+      }
+      #_directory ._link::before {
+        content: '';
+        display: block;
+        width: 50%;
+        height: 5px;
+        position: absolute;
+        border-top: 5px solid #a36623;
+        top: -6px;
+        left: 2px;
+        border-radius: 5px;
+      }
+      #_favourites ._link._select {
+        color: black !important;
+        border-color: black !important;
+        background-color: #e8a049 !important;
+      }
     </style>
   </head>
   <body class="_body" id="_body">
@@ -176,57 +200,57 @@ function renderDirectoryContent($directory) {
           </header>
           <main id="_main">
             <div class="_main_layout">
-              <article class="_article">
+              <article class="_article _flex _gap_a">
+                <div class="_fill">
 
-                <div class="_flex _gap_a_x5">
-                  <div class="_fill">
+                  <div class="_color_1 _radius" style="padding:.5rem">
+                    <span>🔍</span>
+                    <span>localhost<?= $_URI ?></span>
+                  </div>
+
+                  <nav class="directory" style="min-height:250px">
+                  <?php
+
+                  // echo "<pre>";
+                    // print_r([ '$__DIR__' => $__DIR__ ]);
+                    // print_r($_SERVER);
+                    // echo "</pre>";
                     
-                    <div class="_color_1 _radius_x5r" style="padding:.7rem">
-                      <span>localhost<?= $_URI ?></span>
-                    </div>
-                    
-                  </div>
-                  <div class="_f" style="flex: 0 0 12rem">
-                    <nav class="_color_1 _radius_x5r _clearfix">
-                      <div class="_nav_layout _text_right">
-                      <a href="/local2025/site/500.html" class="_link _l">500</a><a href="/local2025/site/403.html" class="_link _l">403</a><a href="/local2025/site/404.html" class="_link _l">404</a><a href="404" title="Simulate Real 404" class="_link _l _icon">&bull;</a>
-                      </div>
-                    </nav>
-                  </div>
-                </div>
-                <hr class="_hidden"/>
-                <div class="_flex _gap_a_x5">
-                  <div class="_fill directory" style="min-height:250px">
-                    <?php
+                    renderDirectoryContent($_DIRECTORY);
 
-                    // echo "<pre>";
-                      // print_r([ '$__DIR__' => $__DIR__ ]);
-                      // print_r($_SERVER);
-                      // echo "</pre>";
-                      
-                      renderDirectoryContent($_DIRECTORY);
+                  ?>
+                  </nav>
 
-                    ?>
-                  </div>
-                  <div class="_f directory" style="flex-basis:20%">
-                    <h3 class="_small">Favourite</h3>
-                    <div class="_mh_x5r _p _idiv" id="_favourites">
-                      <a href='/phpMyAdmin' class='_link _l _border'>phpMyAdmin</a>
-                      <a href='/nova/site' class='_link _l _border'>Nova</a>
-                      <a href='/neo' class='_link _l _border'>Neo</a>
-                      <a href='/segio/site' class='_link _l _border'>Segio</a>
-                      <a href='/tidloo/dev/manual' class='_link _l _border'>Tidloo</a>
-                      <hr>
-                      <h3 class="_h7 _mb_x5r">Ace</h3>
-                      <a href='/ace' class='_link _l _border'>Ace</a>
-                      <a href='/ace/easymenu' class='_link _l _border'>EasyMenu&trade;</a>
-                      <a href='/ace/themejs' class='_link _l _border'>ThemeJS&trade;</a>
-                      <a href='/ace/a1' class='_link _l _border'>A1</a>
-                      <a href='/ace/b1' class='_link _l _border'>B1</a>
-                      <a href='/ace/vanamir' class='_link _l _border'>Vanamir</a>
-                    </div>
-                  </div>
                 </div>
+                <?php if($_SERVER['REQUEST_URI'] === '/') { ?>
+                <nav id="_favourites" class="_f featured" style="flex-basis:30%">
+                  <h3 class="_h7 _mv_x5r">Favourite</h3>
+                  <div class="_ma_x5r _idiv">
+                    <a href='/core' class='_link _l _border _select'>Core</a>
+                    <a href='/nova/site' class='_link _l _border'>Nova</a>
+                    <a href='/neo' class='_link _l _border'>Neo</a>
+                    <a href='/segio/site' class='_link _l _border'>Segio</a>
+                    <a href='/tidloo/dev/manual' class='_link _l _border'>Tidloo</a>
+                  </div>
+                  <h3 class="_h7 _mb_x5r">Ace</h3>
+                  <div class="_ma_x5r _idiv">
+                    <a href='/ace' class='_link _l _border'>Ace</a>
+                    <a href='/ace/easymenu' class='_link _l _border'>EasyMenu&trade;</a>
+                    <a href='/ace/themejs' class='_link _l _border'>ThemeJS&trade;</a>
+                    <a href='/ace/a1' class='_link _l _border'>A1</a>
+                    <a href='/ace/b1' class='_link _l _border'>B1</a>
+                    <a href='/ace/vanamir' class='_link _l _border'>Vanamir</a>
+                  </div>
+                  <h3 class="_h7 _mb_x5r">Tools</h3>
+                  <div class="_ma_x5r _idiv">
+                    <a href='/phpMyAdmin' class='_link _l _border'>PHP MyAdmin</a>
+                  </div>
+                  <h3 class="_h7 _mb_x5r">System</h3>
+                  <div class="_ma_x5r _idiv" id="_system">
+                    <a href="/local2025/site/500.html" class="_link _l">500</a><a href="/local2025/site/403.html" class="_link _l">403</a><a href="/local2025/site/404.html" class="_link _l">404</a><a href="R404" title="Simulate Real 404" class="_link _l">R404</a>
+                  </div>
+                </nav>
+                <?php } ?>
               </article>
             </div>
           </main>
@@ -269,7 +293,7 @@ function renderDirectoryContent($directory) {
                 </nav>
 
                 <div style="margin-left:2em;float:right;">
-                  <p class="_small"><a href="https://github.com/techie-joe/local2025" target="github-local2025" class="_link _l"><u>Git Source</u></a></p>
+                  <p class="_small"><a href="https://github.com/techie-joe/local2025" target="github-local2025" class="_link _l">Git Source</a></p>
                 </div>
 
                 <hr/>
