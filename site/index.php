@@ -209,17 +209,16 @@ function renderDirectoryContent($directory) {
                     ?>
                   </div>
                   <div class="_f directory" style="flex-basis:20%">
-                    <!-- <h3 class="_small">Favourites:</h3> -->
+                    <h3 class="_small">Favourite</h3>
                     <div class="_mh_x5r _p _idiv" id="_favourites">
-                      <a href='/phpMyAdmin' class='_link _l _border'>PHP My Admin</a>
-                      <a href='/ace' class='_link _l _border'>Ace</a>
-                      <!-- <a href='/easymenu' class='_link _l _border'>EasyMenu&trade;</a> -->
+                      <a href='/phpMyAdmin' class='_link _l _border'>phpMyAdmin</a>
                       <a href='/nova/site' class='_link _l _border'>Nova</a>
                       <a href='/neo' class='_link _l _border'>Neo</a>
                       <a href='/segio/site' class='_link _l _border'>Segio</a>
                       <a href='/tidloo/dev/manual' class='_link _l _border'>Tidloo</a>
                       <hr>
                       <h3 class="_h7 _mb_x5r">Ace</h3>
+                      <a href='/ace' class='_link _l _border'>Ace</a>
                       <a href='/ace/easymenu' class='_link _l _border'>EasyMenu&trade;</a>
                       <a href='/ace/themejs' class='_link _l _border'>ThemeJS&trade;</a>
                       <a href='/ace/a1' class='_link _l _border'>A1</a>
