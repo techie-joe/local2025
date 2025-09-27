@@ -146,6 +146,9 @@ function renderDirectoryContent($directory) {
         left: 2px;
         border-radius: 5px;
       }
+      #_favourites ._link {
+        border-width:2px;
+      }
       #_favourites ._link._select {
         color: black !important;
         border-color: black !important;
