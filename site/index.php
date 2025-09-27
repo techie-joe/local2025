@@ -151,7 +151,6 @@ function renderDirectoryContent($directory) {
       }
       #_favourites ._link._select {
         color: black !important;
-        border-color: black !important;
         background-color: #e8a049 !important;
       }
     </style>
