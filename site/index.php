@@ -226,8 +226,8 @@ function renderDirectoryContent($directory) {
                 <nav id="_favourites" class="_f featured" style="flex-basis:30%">
                   <h3 class="_h7 _mv_x5r">Favourite</h3>
                   <div class="_ma_x5r _idiv">
-                    <a href='/core' class='_link _l _border _select'>Core</a>
-                    <a href='/nova/site' class='_link _l _border'>Nova</a>
+                    <a href='/core/site' class='_link _l _border _select'>Core</a>
+                    <a href='/nova/site' class='_link _l _border _select'>Nova</a>
                     <a href='/neo' class='_link _l _border'>Neo</a>
                     <a href='/segio/site' class='_link _l _border'>Segio</a>
                     <a href='/tidloo/dev/manual' class='_link _l _border'>Tidloo</a>
