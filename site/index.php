@@ -32,7 +32,6 @@ function match_file($file)
     && preg_match($exclude, $file) === 0;
 }
 
-
 function renderDirectoryContent($directory) {
   
   $parentLink = '<a href=".." title="Parent directory" class="_link _l">&middot;&middot;</a>';
