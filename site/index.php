@@ -157,30 +157,6 @@ function renderDirectoryContent($directory) {
                 <div class="_nav_layout"><a class="_link _color _ticon" href="#" title="Change Theme (Ctrl+Alt+T)" onclick="event.preventDefault();theme.change();">☯</a><a class="_link _color" title="Back to previous page" href="/#_back_to_previous_page" onclick="event.preventDefault();window.history.back();">&times;</a>
                 </div>
               </nav>
-              <?php if(0) { ?>
-                <nav class="_color_1 _no_print" id="_navbar">
-                  <div class="_nav_layout">
-                    <div class="_flex">
-                      <div class="_f">
-                        <style>
-                          #_navlogo {
-                            border: 0;
-                            padding: .25em 1em;
-                            border-radius: 0;
-                            margin: 0;
-                            line-height: 2;
-                            font-size: 1.2em;
-                            box-sizing: border-box;
-                            width: 100%;
-                          }
-                        </style><a class="_btnlink" href="/ace/" id="_navlogo"><b class="_tc_contra">Ace</b><b class="_tc_blue">Template</b></a>
-                      </div>
-                      <div class="_fill" style="flex-basis:20rem">
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-              <?php } ?>
               <div class="_pageHeader _simpleHeader">
                 <h1 class="_h1 _mb0" id="_heading">
                   <a href="/" title="Back to home page" class="_link _l"><?= $heading ?></a>
