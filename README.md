@@ -1,7 +1,10 @@
 # Local 2025
-> Local development 2025
+> Localhost development
 
 ## Change logs
+
+### October 10, 2025 - v0.26.1
+- Start development.
 
 ### May 22, 2025 - v2.0.2
 - fix rewrite conditions.
