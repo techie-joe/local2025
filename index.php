@@ -1,21 +1,8 @@
 <?php
 
-$__ROOT__  = __DIR__;
-
+include "_config.php";
 include "_php/main.php";
 include "_php/html.php";
-include "_php/favorites.php";
-
-$title        = 'Localhost 2025';
-$heading      = 'Localhost 2025';
-$description  = 'Localhost development';
-$author       = 'Techie Joe';
-$version      = '0.26.1';
-
-$lang         = 'en';
-$charset      = 'utf-8';
-$color_scheme = 'light dark';
-$year         = date('Y');
 
 $style = <<<CSS
 .header { line-height: 0 }
@@ -59,6 +46,7 @@ $style = <<<CSS
 ._fill { flex:12 1 0 }
 CSS;
 
+/*
 $pre = <<<HTML
 <pre>
 
@@ -75,6 +63,7 @@ $pre = <<<HTML
 </pre>
 <hr />
 HTML;
+*/
 
 $directory  = getDirectoryContent($_DIR);
 
@@ -100,26 +89,17 @@ $favourites = ''; if($_URI === '/') { $favourites = <<<HTML
     <a href='/tidloo/dev/manual' class='_link _l _border'>Tidloo</a>
     <a href='/test-sites' class='_link _l _border'>Test Sites</a>
   </div>
-  <h3 class="_h7 _mb_x5r">Ace</h3>
+  <h3 class="_h7 _mb_x5r">Featured</h3>
   <div class="_ma_x5r _idiv">
     <a href='/ace' class='_link _l _border'>Ace</a>
     <a href='/ace/easymenu' class='_link _l _border'>EasyMenu&trade;</a>
     <a href='/ace/themejs' class='_link _l _border'>ThemeJS&trade;</a>
-    <a href='/ace/a1' class='_link _l _border'>A1</a>
-    <a href='/ace/b1' class='_link _l _border'>B1</a>
     <a href='/ace/vanamir' class='_link _l _border'>Vanamir</a>
   </div>
   <h3 class="_h7 _mb_x5r">Tools</h3>
   <div class="_ma_x5r _idiv">
     <a href='/{$__BASE__}/phpinfo.php' class='_link _l _border'>PHP Info</a>
     <a href='/phpMyAdmin' class='_link _l _border'>PHP MyAdmin</a>
-  </div>
-  <h3 class="_h7 _mb_x5r">System</h3>
-  <div class="_ma_x5r _idiv" id="_system">
-    <a href="/local2025/500.html" class="_link _l">500</a>
-    <a href="/local2025/403.html" class="_link _l">403</a>
-    <a href="/local2025/404.html" class="_link _l">404</a>
-    <a href="R404" title="Simulate Real 404" class="_link _l">R404</a>
   </div>
 </nav>
 HTML;}
@@ -138,6 +118,7 @@ $content = <<<HTML
             <h1 class="_h1 _mb0" id="_heading">
               <a href="/" title="Back to home" class="_link _l">{$heading}</a>
             </h1>
+            <p id="_about" class="_small _mt0">{$description}</p>
             <hr/>
           </div>
         </div>

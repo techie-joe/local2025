@@ -38,6 +38,7 @@ return <<<HTML
     <style>
       body{margin:0}
       ._view{overflow-y:scroll;padding:.5rem}
+      #_footer{position:fixed;bottom:75px}
       ._dark hr{border-color:#666}
     </style>
     <link rel="stylesheet" media="all" href="/ace/assets/css/core_2/html.css?v={$version}" id="_core_style" />
