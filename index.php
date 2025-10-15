@@ -88,6 +88,7 @@ $favourites = ''; if($_URI === '/') { $favourites = <<<HTML
     <a href='/segio/site' class='_link _l _border'>Segio</a>
     <a href='/tidloo/dev/manual' class='_link _l _border'>Tidloo</a>
     <a href='/test-sites' class='_link _l _border'>Test Sites</a>
+    <a href='/styles' class='_link _l _border'>Styles</a>
   </div>
   <h3 class="_h7 _mb_x5r">Featured</h3>
   <div class="_ma_x5r _idiv">
@@ -137,7 +138,6 @@ $content = <<<HTML
                 {$directory}
               </nav>
 
-              
             </div>
             {$favourites}
           </article>
