@@ -2,7 +2,6 @@
 
 include "_config.php";
 include "_php/main.php";
-include "_php/html.php";
 
 $style = <<<CSS
 .header { line-height: 0 }
@@ -155,5 +154,6 @@ $content = <<<HTML
 </div>
 HTML;
 
-echo html();
+include "_php/html.php";
+
 ?>
