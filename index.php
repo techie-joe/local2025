@@ -81,7 +81,7 @@ $favourites = ''; if($_URI === '/') { $favourites = <<<HTML
 <nav id="_favourites" class="_f featured" style="flex-basis:30%">
   <h3 class="_h7 _mv_x5r">Favourite</h3>
   <div class="_ma_x5r _idiv">
-    <a href='/dove' class='_link _l _border special'>Dove</a>
+    <a href='/dove/_site' class='_link _l _border special'>Dove</a>
     <a href='/nova/site' class='_link _l _border special'>Nova</a>
     <a href='/neo' class='_link _l _border'>Neo</a>
     <a href='/segio/site' class='_link _l _border'>Segio</a>
